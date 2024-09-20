@@ -11,7 +11,7 @@ const translatte = require("translatte");
 
 smd({
   pattern: "alive",
-  react: "👑",
+  react: "",
   desc: "Shows bot status",
   category: "misc",
   filename: __filename,
@@ -29,30 +29,27 @@ smd({
       + `Repository: https://github.com/Your-Repository-Link`;
 
     await message.send({
-      image: { url: "https://i.imgur.com/JHoeGsG.jpg" },
-      caption: aliveMessage,
+      text: aliveMessage,
     });
   } catch (err) {
     console.error(err);
   }
 });
 /*
+Changes:
 
 
-Requirements:
-
-
-- Node.js
-- WhatsApp bot library (e.g., `baileys`)
-- `child_process` module
-- `translatte` module
-- `imgur` or another image hosting service
-
-
-Ensure:
-
-
-- Replace `https://wa.me/9112171078` with your owner's WhatsApp link.
+- Replaced `caption` with `text` in `message.send`.
+- Ensure `https://wa.me/9112171078` is your owner's WhatsApp link.
 - Replace `https://github.com/Your-Repository-Link` with your bot's repository link.
-- Replace `https://i.imgur.com/JHoeGsG.jpg` with your desired image link.
-*/
+
+
+If still not working:
+
+
+- Check console logs for errors.
+- Verify `runtime()` function returns uptime correctly.
+- Ensure WhatsApp bot library and dependencies are updated. */
+
+
+Test and let me know!

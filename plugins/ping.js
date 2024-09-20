@@ -11,26 +11,21 @@ const translatte = require("translatte");
 
 smd({
   pattern: "ping",
-  react: "👸",
-  desc: "Shows ping, runtime, owner, and an image",
+  react: "⏳️",
+  desc: "Shows ping",
   category: "misc",
   filename: __filename,
 }, async (message) => {
   try {
-    const owner = "https://wa.me/9112171078";
-    const runtimeInfo = runtime();
-    const imageUrl = "https://i.imgur.com/JHoeGsG.jpg"; // Direct image link
-
     const startTime = new Date().getTime();
-    const { key } = await message.reply("*Calculating ping...*");
+    const { key } = await message.reply("*Checking ping...*");
     const endTime = new Date().getTime();
     const speed = endTime - startTime;
 
-    const finalMessage = `👸 *I am Queen Nikka.*\n\nMy speed is: **${speed} ms**\nOwner: ${owner}\nRuntime: ${runtimeInfo}`;
+    const pingMessage = `Pong!\nSpeed: ${speed}ms\nLatency: ${speed}ms`;
 
     await message.send({
-      image: { url: imageUrl },
-      caption: finalMessage,
+      caption: pingMessage,
     }, { edit: key });
   } catch (err) {
     console.error(err);
@@ -39,12 +34,20 @@ smd({
 /*
 
 
-Changes:
+Requirements:
 
 
-- Replaced the image URL with a direct link (remove any URL shorteners or albums).
-- Removed the `![Image](${imageUrl})` markdown and instead used the `image` property in the `send` method.
-- Set the `caption` property to the `finalMessage` string.
+- Node.js
+- WhatsApp bot library (e.g., `baileys`)
+- `child_process` module
+- `translatte` module
 
 
-This should send the image with the text underneath, similar to a picture sent on WhatsApp. */
+Ensure:
+
+
+- Install required modules using `npm install` or `yarn add`.
+- Replace `../config` and `../lib` with your actual file paths.
+
+
+Test and let me know if you need further assistance! */

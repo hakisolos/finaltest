@@ -49,7 +49,5 @@ If still not working:
 
 - Check console logs for errors.
 - Verify `runtime()` function returns uptime correctly.
-- Ensure WhatsApp bot library and dependencies are updated. */
-
-
-Test and let me know!
+- Ensure WhatsApp bot library and dependencies 
+*/

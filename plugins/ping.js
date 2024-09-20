@@ -17,16 +17,14 @@ smd({
   filename: __filename,
 }, async (message) => {
   try {
+    await message.reply("*Checking ping...*");
     const startTime = new Date().getTime();
-    const { key } = await message.reply("*Checking ping...*");
     const endTime = new Date().getTime();
     const speed = endTime - startTime;
 
     const pingMessage = `Pong!\nSpeed: ${speed}ms\nLatency: ${speed}ms`;
 
-    await message.send({
-      caption: pingMessage,
-    }, { edit: key });
+    await message.send(pingMessage);
   } catch (err) {
     console.error(err);
   }
@@ -34,20 +32,14 @@ smd({
 /*
 
 
-Requirements:
+Changes:
 
 
-- Node.js
-- WhatsApp bot library (e.g., `baileys`)
-- `child_process` module
-- `translatte` module
+- Removed `edit` option.
+- Sent `pingMessage` as a new message.
 
 
-Ensure:
+Now, after "Checking ping...", it will send a new message with the ping result.
 
 
-- Install required modules using `npm install` or `yarn add`.
-- Replace `../config` and `../lib` with your actual file paths.
-
-
-Test and let me know if you need further assistance! */
+Test and let me know! */

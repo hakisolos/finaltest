@@ -11,7 +11,7 @@ const translatte = require("translatte");
 
 smd({
   pattern: "alive",
-  react: "",
+  react: "👑",
   desc: "Shows bot status",
   category: "misc",
   filename: __filename,
